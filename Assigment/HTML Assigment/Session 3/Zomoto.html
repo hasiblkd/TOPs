@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomoto</title>
+</head>
+<body>
+    <h1>Zomoto Food Order</h1>
+    <form>
+        <label for="Username">Username</label>
+        <input type="text" name="Username" required><br><br>
+        <label for="Food Item">Food Item's</label>
+        <select id="Food Item" name="Food Item" required><br><br>
+            <option value="">Select Food</option>
+            <option value="pizza">Pizza</option>
+            <option value="Alu Paratha">Aalu-Paratha</option>
+            <option value="pasta">Pasta</option>
+        </select><br><br>
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" required><br><br>
+        <label for="instruction">Delivery Instruction</label>
+        <textarea id="instruction" name="Instruction" rows="4" cols="40" 
+        placeholder="Add Your Address for Food Delivery" required></textarea><br><br>
+        <button type="submit">Place Order</button><br><br>
+         <label for="orderid">Order ID:</label><br>
+         <input type="text" id="orderid" value="ORD12345" disabled><br><br>
+    </form>
+</body>
+</html>
