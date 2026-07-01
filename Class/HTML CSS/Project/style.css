@@ -1,0 +1,348 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    list-style: none;
+}
+body{
+    font-family: "Jost", sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: "Cormorant Garamond", serif;
+}
+.container{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    padding: 0px 30px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav1{
+    width: 44.5%;
+    height: 90px;
+    justify-content: space-between;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: #2B2B2B;
+}
+.logo-nav{
+    width: 35px;
+    height: 90px;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+}
+.nav3{
+    width: 44.5%;
+    height: 90px;
+    justify-content: space-between;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: #2B2B2B;
+    
+}
+#logo-id{
+    height: 60px;
+    width: 60px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+ul{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    color: #063181;
+
+}
+
+#home{
+    position: relative;
+}
+#home ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    font-size: 0.9em;
+    z-index: 1;
+    box-shadow: rgb(63, 63, 63);
+}
+#home:hover ul{
+    display: flex;
+    box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
+}
+#home:hover{
+    background-color: white;
+    color: black;
+}
+#pages{
+    position: relative;
+}
+#pages ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    font-size: 0.9em;
+    z-index: 1;
+    box-shadow: rgb(63, 63, 63);
+}
+#pages:hover ul{
+    display: flex;
+    box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
+}
+#pages:hover{
+    background-color: white;
+    color: black;
+
+}
+#retreats{
+    position: relative;
+}
+#retreats ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    font-size: 0.9em;
+    z-index: 1;
+    box-shadow: rgb(63, 63, 63);
+}
+#retreats:hover ul{
+    display: flex;
+    box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
+}
+#retreats:hover{
+    background-color: white;
+    color: black;
+
+}
+#blogs{
+    position: relative;
+}
+#blogs ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    font-size: 0.9em;
+    z-index: 1;
+    box-shadow: rgb(63, 63, 63);
+}
+#blogs:hover ul{
+    display: flex;
+    box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
+}
+#blogs:hover{
+    background-color: white;
+    color: black;
+
+}
+#contacts{
+    position: relative;
+}
+#contacts ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    font-size: 0.9em;
+    z-index: 1;
+    box-shadow: rgb(63, 63, 63);
+}
+#contacts:hover ul{
+    display: flex;
+    box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
+}
+#contacts:hover{
+    background-color: white;
+    color: black;
+
+}
+#components{
+    position: relative;
+}
+#components ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    font-size: 0.9em;
+    z-index: 1;
+    box-shadow: rgb(63, 63, 63);
+}
+#components:hover ul{
+    display: flex;
+    box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
+}
+#components:hover{
+    background-color: white;
+    color: black;
+
+}
+#docs{
+    position: relative;
+}
+#docs ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    font-size: 0.9em;
+    z-index: 1;
+    box-shadow: rgb(63, 63, 63);
+}
+#docs:hover ul{
+    display: flex;
+    box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
+}
+#docs:hover{
+    background-color: white;
+    color: black;
+
+}
+.container2{
+    position: relative;
+    height: 520px;
+}
+.container2 img{
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+.container2 .content1{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+.link1{
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+.link1 a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+.link1 a:hover{
+    text-decoration: underline;
+}
+b{
+    color: white;
+}
+.content1 h1{
+    color: white;
+    justify-content: center;
+    text-align: center;
+    font-size: 3em;
+}
+.content1 p{
+    font-size: 1.5em;
+    color: white;
+    justify-content: center;
+}
+#btn1{
+    width: 150px;
+    height: 30px;
+    color:white;
+    background-color: #063181;
+    border-radius: 20px ;
+    margin-top: 10px;
+}
+#btn1:hover{
+    background-color: #021841;
+}
+.container3{
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 62%;
+    height: 250px;
+    border:1px solid #e6e6e6;
+    border-radius:8px;
+    text-align:center;
+    background:white;
+    padding: 10px;
+    justify-content: center;
+}
+.card h4{
+    font-family:"Cormorant Garamond", serif;
+    font-size:30px;
+    color:#063181;
+    margin-bottom:35px;
+    margin-top: 10px;
+}
+.card p{
+    font-family:"Jost", sans-serif;
+    font-size:13px;
+    color:#777;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height:1.8;
+}
+.line{
+    width: 60px;
+    height: 1px;
+    background: #d9d9d9;
+    margin: 15px auto 0;
+    margin-bottom: 20px;
+}
