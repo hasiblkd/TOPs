@@ -258,6 +258,7 @@ ul{
     width: 100%;
     height: 520px;
     object-fit: cover;
+    display: flex;
 }
 .container2 .content1{
     position:absolute;
