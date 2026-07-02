@@ -4,10 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookMyShow</title>
+    <style>
+        .container{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            margin: 20px;
+            padding: 20px;
+        }
+        .card1{
+            height: 280px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+        } 
+        .badge{
+            height: fit-content;
+            background-color: red;
+            color: white;
+            position: absolute;
+        }
+        img{
+            height: 220px;
+            width:300px;
+        }
+        .card2{
+            height: 280px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+        }
+        .card3{
+            height: 280px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+        }
+        .card4{
+            height: 280px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            
+        }
+        .card5{
+            height: 280px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+        }
+        .card6{
+            height: 280px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+        }
+        p{
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="card1"></div>
+        <div class="cards">
+            <div class="card1">
+            <div class="badge">New</div>
+            <div class="img1">
+                <img src="bleach.png" alt="Bleach">
+                <p>Bleach: Thoused-Year of Blood Part-2</p>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="img2">
+                <img src="Demon-Slayer-IMAX-poster.webp" alt="Bleach">
+                <p>Demon Slayer:- Infinte Castle Arc</p>
+            </div>
+        </div>
+        <div class="card3">
+            <div class="img3">
+                <img src="FASTX.jpg" alt="Bleach">
+                <p>FastX</p>
+            </div>
+        </div>
+        <div class="card4">
+            <div class="img4">
+                <img src="pushpa_poster.jpg" alt="Bleach">
+                <p>Pushpa Part:-1</p>
+            </div>
+        </div>
+        <div class="card5">
+            <div class="img5">
+                <img src="KGF.jpeg" alt="Bleach">
+                <p>K.G.F</p>
+            </div>
+        </div>
+        <div class="card6">
+            <div class="img6">
+                <img src="salaar.jpeg" alt="Bleach">
+                <p>Salaar</p>
+            </div>
+        </div>
+        </div>
     </div>
 </body>
 </html>
