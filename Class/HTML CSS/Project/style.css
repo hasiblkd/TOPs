@@ -88,6 +88,7 @@ ul{
 }
 #home:hover ul{
     display: flex;
+    position: sticky;
     box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
 }
 #home:hover{
@@ -304,7 +305,8 @@ b{
     color:white;
     background-color: #063181;
     border-radius: 20px ;
-    margin-top: 10px;
+    margin-top: 20px;
+    border: none;
 }
 #btn1:hover{
     background-color: #021841;
@@ -346,4 +348,183 @@ b{
     background: #d9d9d9;
     margin: 15px auto 0;
     margin-bottom: 20px;
+}
+#head1{
+    color: #063181;
+    text-align: center;
+}
+.card-img{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.card-img1{
+    width: 230px;
+    border: transparent;
+    text-align: center;
+}
+.card-img1 img{
+    height: 180px;
+    width: 230px;
+    border-radius: 5px;
+}
+.card-img1 h4{
+    margin-top: 15px;
+    color: #063181;
+}
+.card-img1 p{
+    color:#777;
+}
+.link2{
+    text-decoration: none;
+}
+.link2:hover{
+    text-decoration: underline;
+}
+.container5{
+    width:100%;
+    height:550px;
+    position: relative;
+    margin-top: 80px;
+}
+.img-bath img{
+    width:100%;
+    height: 500px;
+    object-fit:cover;
+    display:block;
+    filter:contrast(70%);
+}
+.bath-content{
+    position:absolute;
+    top:43%;
+    left: 50%;
+    transform:translateY(-50%);
+}
+.sub-bath-content{
+    width:450px;
+    padding:40px;
+    border-radius:8px;
+    text-align:center;
+}
+.sub-bath-content h2{
+    font-size: 4em;
+    color:white;
+}
+.sub-bath-content p{
+    color: white;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+.sub-bath-content button{
+    height: 30px;
+    width: 120px;
+    font-size: 0.5em;
+    margin-top: 20px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+.sub-bath-content button:hover{
+    color: rgb(251, 241, 241);
+    background-color: white;
+}
+.container6{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.sub-container6{
+    width: 80%;                
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    border: transparent;
+}
+.content6{
+    width: 340px;
+    height: 218px;
+    border: transparent;
+    text-align: left;
+    right: 200px;
+}
+.content6-img img{
+    height: 210px;
+    width: 330px;
+    border-radius: 10px;
+}
+.content6 button{
+    height: 30px;
+    width: 120px;
+    font-size: 0.5em;
+    border: 1.5px solid #063181;
+    border-radius: 30px;
+    background-color: white;
+    color: #063181;
+    margin-top: 35px;
+}
+#cont-btn:hover{
+    color: white;
+    background-color: #063181;
+}
+.content6 h2{
+    color: #063181;
+    font-size: 30px;
+}
+.content6 p{
+    margin-top: 10px;
+    color:#777;
+    font-size: 0.8em;
+}
+.container7{
+    width: 100%;
+    margin-top: 90px;
+    justify-content: center;
+    display: flex;
+}
+.sub-container7{
+    width: 100%;
+    height: 400px;
+    background-image: url(nature.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    filter: contrast(70%);
+}
+.sub-content{
+    position: absolute;
+    height: 200px;
+    width: 400px;
+    border: transparent;
+    justify-content: center;
+    text-align: center;
+    top: 30%;
+    left: 50%;
+}
+.sub-content h2{
+    font-weight: -400;
+    font-size: 3.7em;
+    color: white;
+}
+.sub-content p{
+    font-size: 1em;
+    color: white;
+    margin-top: 10px;
+}
+.sub-content button{
+    height: 30px;
+    width: 120px;
+    font-size: 0.7em;
+    margin-top: 20px;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+#btn2:hover{
+    color: black;
+    background-color: white;
 }
