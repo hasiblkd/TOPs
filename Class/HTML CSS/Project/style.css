@@ -71,6 +71,7 @@ ul{
 
 #home{
     position: relative;
+    padding-bottom: 20px;
 }
 #home ul{
     display: none;
@@ -78,17 +79,19 @@ ul{
     background-color: white;
     top: 100%;
     left: 0%;
-    padding: 10px;
+    margin-top: 0;
+    padding: 15px 0;
     flex-direction: column;
     gap: 10px;
     width: 150px;
     font-size: 0.9em;
-    z-index: 1;
+
+    z-index: 9999;
     box-shadow: rgb(63, 63, 63);
 }
 #home:hover ul{
     display: flex;
-    position: sticky;
+    cursor: pointer;
     box-shadow: 0 10px 10px rgb(63, 63, 63, 0.50);
 }
 #home:hover{
@@ -97,6 +100,7 @@ ul{
 }
 #pages{
     position: relative;
+    padding-bottom: 20px;
 }
 #pages ul{
     display: none;
@@ -104,7 +108,8 @@ ul{
     background-color: white;
     top: 100%;
     left: 0%;
-    padding: 10px;
+    margin-top: 0;
+    padding: 15px 0;
     flex-direction: column;
     gap: 10px;
     width: 150px;
@@ -123,6 +128,7 @@ ul{
 }
 #retreats{
     position: relative;
+    padding-bottom: 20px;
 }
 #retreats ul{
     display: none;
@@ -130,7 +136,8 @@ ul{
     background-color: white;
     top: 100%;
     left: 0%;
-    padding: 10px;
+    margin-top: 0;
+    padding: 15px 0;
     flex-direction: column;
     gap: 10px;
     width: 150px;
@@ -149,6 +156,7 @@ ul{
 }
 #blogs{
     position: relative;
+    padding-bottom: 20px;
 }
 #blogs ul{
     display: none;
@@ -156,7 +164,8 @@ ul{
     background-color: white;
     top: 100%;
     left: 0%;
-    padding: 10px;
+    margin-top: 0;
+    padding: 15px 0;
     flex-direction: column;
     gap: 10px;
     width: 150px;
@@ -175,6 +184,7 @@ ul{
 }
 #contacts{
     position: relative;
+    padding-bottom: 20px;
 }
 #contacts ul{
     display: none;
@@ -182,7 +192,8 @@ ul{
     background-color: white;
     top: 100%;
     left: 0%;
-    padding: 10px;
+    margin-top: 0;
+    padding: 15px 0;
     flex-direction: column;
     gap: 10px;
     width: 150px;
@@ -201,6 +212,7 @@ ul{
 }
 #components{
     position: relative;
+    padding-bottom: 20px;
 }
 #components ul{
     display: none;
@@ -208,7 +220,8 @@ ul{
     background-color: white;
     top: 100%;
     left: 0%;
-    padding: 10px;
+    margin-top: 0;
+    padding: 15px 0;
     flex-direction: column;
     gap: 10px;
     width: 150px;
@@ -227,6 +240,7 @@ ul{
 }
 #docs{
     position: relative;
+    padding-bottom: 20px;
 }
 #docs ul{
     display: none;
@@ -234,7 +248,8 @@ ul{
     background-color: white;
     top: 100%;
     left: 0%;
-    padding: 10px;
+    margin-top: 0;
+    padding: 15px 0;
     flex-direction: column;
     gap: 10px;
     width: 150px;
