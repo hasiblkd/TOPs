@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .container{
+            width: 100%;
+        }
+        .sub-container{
+            display: flex;
+            justify-content:space-between;
+            gap: 20px;
+            margin: 20px;
+        }
+        .Icon{
+            height: 200px;
+            width: 300px;
+            border: 1px solid black;
+        }
+        .Icon img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <div class="Icon">
+                <img src="instagram.png" alt="instaIcon">
+            </div>
+            <div class="Icon">
+                <img src="logo.png" alt="whatsappIcon">
+            </div>
+            <div class="Icon">
+                <img src="Zomato_logo.png" alt="zomatoIcon">
+            </div>
+            <div class="Icon">
+                <img src="spotify.png" alt="spotifyIcon">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

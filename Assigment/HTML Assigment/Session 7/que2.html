@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Playlist</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#121212;
+}
+
+.container{
+    width:100%;
+    padding:40px;
+}
+
+.sub-container{
+    display:flex;
+    justify-content:space-evenly;
+    gap:20px;
+}
+
+.playlist-cards{
+    width:200px;
+    height:100px;
+    background-color:#1DB954;
+    color:white;
+    border-radius:10px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.playlist-cards:hover{
+    background-color:#169c46;
+}
+
+.playlist-cards h3{
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.playlist-cards p{
+    font-size:14px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <div class="playlist-cards">
+                <h3>Song 1</h3>
+                <p>Artist 1</p>
+            </div>
+            <div class="playlist-cards">
+                <h3>Song 2</h3>
+                <p>Artist 2</p>
+            </div>
+            <div class="playlist-cards">
+                <h3>Song 3</h3>
+                <p>Artist 3</p>
+            </div>
+            <div class="playlist-cards">
+                <h3>Song 4</h3>
+                <p>Artist 4</p>
+            </div>
+            <div class="playlist-cards">
+                <h3>Song 5</h3>
+                <p>Artist 5</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
