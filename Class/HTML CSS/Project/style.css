@@ -604,3 +604,127 @@ b{
     color: #063181;
     background-color: white;
 }
+.container9{
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+#head2{
+    color: #063181;
+    text-align: center;
+    font-size: 45px;
+}
+.sub-container9{
+    margin: 60px auto 0;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.img-container9{
+    width:20%;
+    display:flex;
+    justify-content:center;
+}
+.img-container9 img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.sub-content9{
+    width: 60%;
+}
+.quote{
+    font-size:18px;
+    color:#777;
+    line-height:32px;
+}
+
+.sub-content9 h3{
+    margin-top:20px;
+    color:#063181;
+    font-size:20px;
+}
+.designation{
+    margin-top:8px;
+    color:#999;
+    font-size:15px;
+}
+.container10{
+    width: 100%;
+    margin-top: 100px;
+}
+.sub-container10{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.img-container9{
+    gap: 20px;
+    display: flex;
+}
+.img-container9 img{
+    border-radius: 10px 10px;
+    border: 1px solid black;
+    gap: 100px;
+}
+.dots{
+    font-size: 4em;
+    text-align: center;
+    color: #999;
+}
+.container11{
+    width: 100%;
+    margin-top: 100px;
+    background-color: #063181;
+}
+.sub-container11{
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.top{
+    width: 100%;
+    margin-top: 50px;
+}
+.top a{
+    color: white;
+    gap: 60px;
+}
+.logo-class img{
+    height: 150px;
+    width: 150px;
+}
+.body3 a,span{
+    color: white;
+}
+.email input{
+    margin-top: 30px;
+    height: 40px;
+    width: 400px;
+    border-radius: 5px 5px;
+    border: transparent;
+    padding: 10px;
+}
+.email button{
+    height: 40px;
+    width: 100px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5px 5px;
+    color: white;
+}
+.last{
+    margin-top: 20px;
+}
+.last p{
+    color: #999;
+}
+.last a{
+    color: white;
+}

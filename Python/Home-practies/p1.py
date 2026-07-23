@@ -1,4 +1,4 @@
-print("Name","Hasib Lakdawala",sep=" : ")
+print("Name","Hasib Lakdawala"," empty",sep=" : ")
 print("Course : ",end=" ")
 print("Python Full Stack", "Mobile App Development")
 print("College","Z.S Patel College",sep=" : ")
