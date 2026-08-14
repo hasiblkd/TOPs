@@ -1,0 +1,5 @@
+review=input("Enter any Food delivery App Review:-")
+low=review.lower()
+punctuation=str("!",",",".")
+remove_punctuation=low.strip(punctuation)
+print(remove_punctuation)

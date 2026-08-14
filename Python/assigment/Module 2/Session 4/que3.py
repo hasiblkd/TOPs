@@ -1,0 +1,5 @@
+order = ('Burger', 'Fries', 'Coke') 
+l=list(order)
+l.append("Pizza")
+t=tuple(l)
+print(t)
