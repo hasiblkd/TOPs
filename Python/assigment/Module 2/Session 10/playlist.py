@@ -15,7 +15,7 @@ def remove_song(song_name, playlist):
 
 # Q-4
 
-def Display_playlist(song_name, playlist):
-    for i in playlist:
-        print(i,".",song_name)
+def Display_playlist(playlist):
+    for i in range(len(playlist)):
+        print(i+1,".",playlist[i])
     return playlist

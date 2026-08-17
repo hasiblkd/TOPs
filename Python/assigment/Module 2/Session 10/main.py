@@ -31,4 +31,4 @@ print("\t Remove Song")
 print(remove_song("Keseriya",playlist))
 
 print("\t Display Song")
-print(Display_playlist("",playlist))
+Display_playlist(playlist)
