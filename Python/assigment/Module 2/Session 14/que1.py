@@ -1,0 +1,10 @@
+cart={"User1":{
+    'Laptop':{"Quntity":1,"Price":150000},
+    'Mouse':{"Quntity":1,"Price":999}
+    },
+    "User2":{
+        'Shoes':{"Quntity":3,"Price":1500},
+        'Watch':{"Quntity":2,"Price":15000}
+    }
+}
+print(cart)
