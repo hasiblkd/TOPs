@@ -1,2 +1,3 @@
-def add_to_cart():
-    return add_to_cart
+def add_to_cart(item, cart):
+    cart.append(item)
+    return cart

@@ -1,8 +1,7 @@
-from Shoping_Cart import add_to_cart
+from Shoping_Cart import cart
+from Shoping_Cart import actions
 
-cart=[]
-
-add_to_cart("Laptop",cart)
-add_to_cart("Watch",cart)
-
-print(cart)
+l = []
+cart.add_to_cart("abc",l)
+actions.add_to_card("xyz",l)
+print(l)
