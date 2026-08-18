@@ -1,5 +1,8 @@
 review=input("Enter any Food delivery App Review:-")
-low=review.lower()
-punctuation=str("!",",",".")
-remove_punctuation=low.strip(punctuation)
-print(remove_punctuation)
+word=""
+
+for i in review:
+    if i.isalnum():
+        word+=i
+
+print(word.lower())

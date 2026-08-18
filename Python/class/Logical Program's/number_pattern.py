@@ -1,13 +1,14 @@
 print("==============================================")
 print("        🔢 NUMBER PATTERN PRACTICE")
 print("==============================================")
-print("BASIC PATTERNS")
+print("\tBASIC PATTERNS")
 print("1.  Increasing Numbers                ✅")
 print("2.  Repeated Number                   ✅")
 print("3.  Same Number in Each Row           ⏳")
 print("4.  Decreasing Numbers                ⏳")
 print("5.  Reverse Numbers                   ⏳")
 print("6.  Row Number Starting From 1        ⏳")
+
 print("\tINTERMEDIATE PATTERNS")
 print("7.  Continuous Number Triangle        ⏳")
 print("8.  Reverse Number Triangle           ⏳")
@@ -89,7 +90,7 @@ match choice:
         for i in range(num):
             for j in range(i+1):
                 print(j+1,end="")
-            j+=1
+                j+=1
             print()
 
     case 7:

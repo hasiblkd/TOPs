@@ -1,10 +1,16 @@
 def word_freq_dict(text):
-    word={}
-    for i in text:
-        if i in word:
-            text[i]+=1
+    count={}
+
+    word=text.split(" ")
+
+    for i in word:
+        if count.get(i) is None:
+            count.update({i:1})
         else:
-            text[i]=1
-    print(word_freq_dict(text[i]))
+            c=count.get(i)
+            c+=1
+            count.update({i:c})
+    return count
     
-word_freq_dict("Virat scored 100, Rohit scored 80, and Gill scored 50 in the IPL match")
+ans=word_freq_dict("Virat scored 100, Rohit scored 80, and Gill scored 50 in the IPL match")
+print(ans)
