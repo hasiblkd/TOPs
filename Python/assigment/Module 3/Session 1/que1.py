@@ -1,0 +1,11 @@
+f=open("my_fav_song.txt","w")
+f.writelines("52 Bar\n")
+f.writelines("Winning Speech\n")
+f.writelines("Tere Liye\n")
+f.writelines("Keseriya\n")
+f.writelines("Neend Nahi Aundi")
+f.close()
+
+f=open("my_fav_song.txt","r")
+data=f.read()
+print(data)
