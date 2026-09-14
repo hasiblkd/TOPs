@@ -1,0 +1,1464 @@
+DJANGO FULL NOTES
+=================
+
+1. WHAT IS DJANGO
+-----------------
+Django is a Python web framework used to build web applications quickly and securely.
+
+Django follows MVT architecture:
+
+M = Model
+V = View
+T = Template
+
+
+2. DJANGO PROJECT VS APP
+------------------------
+PROJECT:
+The complete Django website/application.
+
+APP:
+A feature/module inside the project.
+
+Example:
+
+myproject
+    |
+    |-- users
+    |-- products
+    |-- orders
+    |-- payments
+
+
+3. VIRTUAL ENVIRONMENT
+----------------------
+
+WINDOWS:
+py -m venv venv
+
+MAC:
+python3 -m venv venv
+
+WHY USE IT:
+Creates an isolated Python environment for the project.
+It prevents packages from different projects from conflicting.
+
+
+4. ACTIVATE VIRTUAL ENVIRONMENT
+-------------------------------
+
+WINDOWS CMD:
+venv\Scripts\activate
+
+WINDOWS POWERSHELL:
+.\venv\Scripts\Activate.ps1
+
+MAC:
+source venv/bin/activate
+
+After activation:
+
+(venv) hasib@MacBook Django %
+
+DEACTIVATE:
+deactivate
+
+
+5. INSTALL DJANGO
+-----------------
+
+WINDOWS + MAC:
+pip install django
+
+SAFER:
+python -m pip install django
+
+CHECK DJANGO VERSION:
+python -m django --version
+
+WHY:
+Installs Django inside the active virtual environment.
+
+
+6. CREATE DJANGO PROJECT
+------------------------
+
+WINDOWS:
+py -m django startproject myproject
+
+MAC:
+python3 -m django startproject myproject
+
+OR:
+django-admin startproject myproject
+
+WHY:
+Creates the basic Django project files and configuration.
+
+
+7. PROJECT STRUCTURE
+--------------------
+
+myproject/
+|
+|-- manage.py
+|
+|-- myproject/
+    |-- __init__.py
+    |-- settings.py
+    |-- urls.py
+    |-- asgi.py
+    |-- wsgi.py
+
+
+8. manage.py
+------------
+
+manage.py is used to run Django management commands.
+
+RUN SERVER:
+WINDOWS:
+py manage.py runserver
+
+MAC:
+python manage.py runserver
+
+CREATE APP:
+WINDOWS:
+py manage.py startapp myapp
+
+MAC:
+python manage.py startapp myapp
+
+MAKE MIGRATIONS:
+WINDOWS:
+py manage.py makemigrations
+
+MAC:
+python manage.py makemigrations
+
+MIGRATE:
+WINDOWS:
+py manage.py migrate
+
+MAC:
+python manage.py migrate
+
+CREATE SUPERUSER:
+WINDOWS:
+py manage.py createsuperuser
+
+MAC:
+python manage.py createsuperuser
+
+OPEN DJANGO SHELL:
+WINDOWS:
+py manage.py shell
+
+MAC:
+python manage.py shell
+
+
+9. RUN DJANGO SERVER
+--------------------
+
+WINDOWS:
+py manage.py runserver
+
+MAC:
+python manage.py runserver
+
+URL:
+http://127.0.0.1:8000/
+
+STOP SERVER:
+Control + C
+
+WHY:
+Starts Django's development server for testing the application locally.
+
+
+10. CREATE APP
+--------------
+
+WINDOWS:
+py manage.py startapp myapp
+
+MAC:
+python manage.py startapp myapp
+
+APP STRUCTURE:
+
+myapp/
+|
+|-- migrations/
+|-- __init__.py
+|-- admin.py
+|-- apps.py
+|-- models.py
+|-- tests.py
+|-- views.py
+
+WHY:
+An app represents one feature/module of the Django project.
+
+
+11. ADD APP TO settings.py
+--------------------------
+
+Open:
+
+myproject/settings.py
+
+Find:
+
+INSTALLED_APPS = [
+    ...
+]
+
+Add:
+
+INSTALLED_APPS = [
+    ...
+    "myapp",
+]
+
+WHY:
+Tells Django that myapp is part of the project.
+
+
+12. PROJECT urls.py
+-------------------
+
+File:
+
+myproject/urls.py
+
+Example:
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("myapp.urls")),
+]
+
+WHY:
+Project urls.py controls the main URL routing and connects app URLs.
+
+
+13. APP urls.py
+---------------
+
+Django does not automatically create urls.py inside an app.
+
+Create:
+
+myapp/urls.py
+
+Code:
+
+from django.urls import path
+from .views import index
+
+urlpatterns = [
+    path("", index, name="index"),
+]
+
+WHY:
+Defines URLs belonging to the app.
+
+
+14. VIEWS
+---------
+
+File:
+
+myapp/views.py
+
+Code:
+
+from django.shortcuts import render
+
+def index(request):
+    return render(request, "index.html")
+
+WHY:
+A view receives a request, performs logic, and returns a response.
+
+
+15. REQUEST FLOW
+----------------
+
+Browser
+   |
+   v
+project urls.py
+   |
+   v
+app urls.py
+   |
+   v
+views.py
+   |
+   v
+index()
+   |
+   v
+index.html
+   |
+   v
+Browser
+
+
+16. TEMPLATES
+-------------
+
+Create:
+
+myapp/
+    templates/
+        index.html
+
+Example index.html:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Project</title>
+</head>
+<body>
+    <h1>Hello Django!</h1>
+</body>
+</html>
+
+WHY:
+Templates contain the HTML/user interface.
+
+
+17. PASS DATA FROM VIEW TO TEMPLATE
+-----------------------------------
+
+views.py:
+
+from django.shortcuts import render
+
+def index(request):
+    name = "Hasib"
+    age = 22
+
+    return render(
+        request,
+        "index.html",
+        {
+            "name": name,
+            "age": age
+        }
+    )
+
+index.html:
+
+<h1>Hello {{ name }}</h1>
+<p>Age: {{ age }}</p>
+
+{{ variable }}
+is used to display data in a template.
+
+
+18. TEMPLATE IF
+---------------
+
+{% if age >= 18 %}
+    <p>Adult</p>
+{% else %}
+    <p>Minor</p>
+{% endif %}
+
+
+19. TEMPLATE FOR LOOP
+---------------------
+
+views.py:
+
+def index(request):
+    students = ["Hasib", "Ali", "Ahmed"]
+
+    return render(
+        request,
+        "index.html",
+        {"students": students}
+    )
+
+index.html:
+
+{% for student in students %}
+    <p>{{ student }}</p>
+{% endfor %}
+
+
+20. STATIC FILES
+----------------
+
+Static files include:
+CSS
+JavaScript
+Images
+
+Example structure:
+
+myapp/
+    static/
+        myapp/
+            css/
+            js/
+            images/
+
+In HTML:
+
+{% load static %}
+
+<link rel="stylesheet"
+      href="{% static 'myapp/css/style.css' %}">
+
+WHY:
+Used for CSS, JavaScript and images.
+
+
+21. MODELS
+----------
+
+Models define database tables using Python classes.
+
+models.py:
+
+from django.db import models
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    age = models.IntegerField()
+    phone = models.CharField(max_length=15)
+
+Django automatically creates an id field if no primary key is specified.
+
+DATABASE TABLE:
+
+Student
+----------------
+id
+name
+email
+age
+phone
+
+
+22. COMMON MODEL FIELDS
+-----------------------
+
+CHAR FIELD:
+name = models.CharField(max_length=100)
+
+LONG TEXT:
+description = models.TextField()
+
+INTEGER:
+age = models.IntegerField()
+
+FLOAT:
+price = models.FloatField()
+
+DECIMAL:
+price = models.DecimalField(
+    max_digits=10,
+    decimal_places=2
+)
+
+BOOLEAN:
+is_active = models.BooleanField(default=True)
+
+EMAIL:
+email = models.EmailField()
+
+DATE:
+birth_date = models.DateField()
+
+DATETIME:
+created_at = models.DateTimeField(auto_now_add=True)
+
+
+23. makemigrations
+------------------
+
+WINDOWS:
+py manage.py makemigrations
+
+MAC:
+python manage.py makemigrations
+
+WHY:
+Creates migration files based on model changes.
+
+FLOW:
+
+models.py
+    |
+    v
+makemigrations
+    |
+    v
+migration file
+
+
+24. migrate
+-----------
+
+WINDOWS:
+py manage.py migrate
+
+MAC:
+python manage.py migrate
+
+WHY:
+Applies migration changes to the actual database.
+
+FLOW:
+
+models.py
+    |
+    v
+makemigrations
+    |
+    v
+migration
+    |
+    v
+migrate
+    |
+    v
+database
+
+
+25. DATABASE
+------------
+
+Django normally uses SQLite for a new project.
+
+File:
+
+db.sqlite3
+
+Django can also work with:
+MySQL
+PostgreSQL
+MariaDB
+Oracle
+
+
+26. ADMIN PANEL
+---------------
+
+Django provides a built-in admin panel.
+
+URL:
+
+http://127.0.0.1:8000/admin/
+
+
+27. CREATE SUPERUSER
+--------------------
+
+WINDOWS:
+py manage.py createsuperuser
+
+MAC:
+python manage.py createsuperuser
+
+Django asks for:
+
+Username:
+Email:
+Password:
+Password again:
+
+WHY:
+Creates an administrator account for the Django admin panel.
+
+
+28. REGISTER MODEL IN ADMIN
+---------------------------
+
+Open:
+
+myapp/admin.py
+
+Code:
+
+from django.contrib import admin
+from .models import Student
+
+admin.site.register(Student)
+
+WHY:
+Makes the Student model available in the Django admin panel.
+
+
+29. __str__()
+-------------
+
+models.py:
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+WHY:
+Makes model objects readable in the admin panel and Django shell.
+
+Without __str__:
+Student object (1)
+
+With __str__:
+Hasib
+
+
+30. ORM
+-------
+
+ORM = Object Relational Mapping
+
+Django ORM allows you to work with database data using Python instead of writing SQL manually.
+
+SQL:
+
+SELECT * FROM student;
+
+Django ORM:
+
+Student.objects.all()
+
+
+31. CREATE DATA
+---------------
+
+METHOD 1:
+
+s = Student(
+    name="Hasib",
+    email="hasib@gmail.com",
+    age=22,
+    phone="9876543210"
+)
+
+s.save()
+
+WHY:
+Student() creates the Python object.
+save() stores it in the database.
+
+
+METHOD 2:
+
+Student.objects.create(
+    name="Hasib",
+    email="hasib@gmail.com",
+    age=22,
+    phone="9876543210"
+)
+
+WHY:
+Creates and saves the database record in one operation.
+
+
+32. READ DATA
+-------------
+
+GET ALL:
+
+Student.objects.all()
+
+Example:
+
+students = Student.objects.all()
+
+for student in students:
+    print(student.name)
+
+
+GET ONE:
+
+student = Student.objects.get(id=1)
+
+WHY:
+get() is normally used when exactly one object is expected.
+
+
+FILTER:
+
+students = Student.objects.filter(age=22)
+
+WHY:
+filter() returns all records matching the condition.
+
+
+33. ORM LOOKUPS
+---------------
+
+GREATER THAN:
+Student.objects.filter(age__gt=18)
+
+GREATER THAN OR EQUAL:
+Student.objects.filter(age__gte=18)
+
+LESS THAN:
+Student.objects.filter(age__lt=30)
+
+LESS THAN OR EQUAL:
+Student.objects.filter(age__lte=30)
+
+CONTAINS:
+Student.objects.filter(name__contains="Has")
+
+CASE-INSENSITIVE CONTAINS:
+Student.objects.filter(name__icontains="has")
+
+
+34. UPDATE DATA
+---------------
+
+s = Student.objects.get(id=1)
+
+s.name = "Ali"
+s.age = 25
+
+s.save()
+
+WHY:
+get() gets the object.
+Values are changed.
+save() stores the changes.
+
+
+DIRECT UPDATE:
+
+Student.objects.filter(id=1).update(
+    name="Ali",
+    age=25
+)
+
+
+35. DELETE DATA
+---------------
+
+s = Student.objects.get(id=1)
+
+s.delete()
+
+OR:
+
+Student.objects.filter(age=20).delete()
+
+WHY:
+delete() removes records from the database.
+
+
+36. ORDER BY
+------------
+
+ASCENDING:
+
+Student.objects.order_by("age")
+
+DESCENDING:
+
+Student.objects.order_by("-age")
+
+
+37. FIRST AND LAST
+------------------
+
+Student.objects.all().first()
+
+Student.objects.all().last()
+
+
+38. COUNT
+---------
+
+Student.objects.count()
+
+Example:
+
+total = Student.objects.count()
+
+
+39. EXCLUDE
+-----------
+
+Student.objects.exclude(age=20)
+
+WHY:
+Returns objects that do NOT match the condition.
+
+
+40. EXISTS
+----------
+
+Student.objects.filter(
+    email="hasib@gmail.com"
+).exists()
+
+Returns:
+True
+or
+False
+
+
+41. RELATIONSHIPS
+-----------------
+
+Django supports:
+
+1. One-to-One
+2. One-to-Many
+3. Many-to-Many
+
+
+42. FOREIGNKEY - ONE TO MANY
+----------------------------
+
+class Department(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.CASCADE
+    )
+
+Meaning:
+
+One Department
+      |
+      +-- Student
+      +-- Student
+      +-- Student
+
+
+43. on_delete
+-------------
+
+CASCADE:
+
+on_delete=models.CASCADE
+
+If the parent object is deleted, related objects are deleted.
+
+Other common options:
+
+models.PROTECT
+models.SET_NULL
+models.SET_DEFAULT
+
+
+44. ONE-TO-ONE
+-------------
+
+class UserProfile(models.Model):
+
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE
+    )
+
+Meaning:
+
+One User -> One Profile
+
+
+45. MANY-TO-MANY
+---------------
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+
+    students = models.ManyToManyField(Student)
+
+Meaning:
+
+Student A -> Python
+Student A -> Django
+
+Student B -> Python
+Student B -> Java
+
+
+46. FORMS
+---------
+
+Django forms handle user input.
+
+forms.py:
+
+from django import forms
+
+class StudentForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    age = forms.IntegerField()
+
+
+47. MODELFORM
+-------------
+
+forms.py:
+
+from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+        fields = "__all__"
+
+WHY:
+ModelForm automatically creates form fields based on the model.
+
+
+48. GET AND POST
+----------------
+
+GET:
+Used mainly to retrieve data.
+
+request.GET
+
+
+POST:
+Used mainly to submit data.
+
+request.POST
+
+Example:
+
+def student(request):
+
+    if request.method == "POST":
+        name = request.POST.get("name")
+
+    return render(request, "student.html")
+
+
+49. CSRF
+--------
+
+Django protects POST forms using CSRF protection.
+
+HTML:
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <input type="text" name="name">
+
+    <button type="submit">
+        Save
+    </button>
+
+</form>
+
+WHY:
+Protects forms from Cross-Site Request Forgery attacks.
+
+
+50. TEMPLATE INHERITANCE
+------------------------
+
+base.html:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
+
+
+Another page:
+
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h1>Welcome</h1>
+
+{% endblock %}
+
+WHY:
+Avoids repeating common HTML code.
+
+
+51. NAMED URLS
+--------------
+
+urls.py:
+
+path("student/", student, name="student")
+
+Template:
+
+<a href="{% url 'student' %}">
+    Student
+</a>
+
+WHY:
+Avoids hardcoding URLs and makes URL changes easier.
+
+
+52. REDIRECT
+------------
+
+from django.shortcuts import redirect
+
+return redirect("index")
+
+WHY:
+Sends the browser to another URL.
+
+RENDER:
+return render(request, "index.html")
+
+RENDER:
+Returns an HTML template.
+
+REDIRECT:
+Sends the browser to another URL.
+
+
+53. DJANGO MESSAGES
+-------------------
+
+from django.contrib import messages
+
+messages.success(
+    request,
+    "Student added successfully!"
+)
+
+Template:
+
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+
+WHY:
+Displays success/error/information messages to users.
+
+
+54. DJANGO SHELL
+----------------
+
+WINDOWS:
+
+py manage.py shell
+
+MAC:
+
+python manage.py shell
+
+Then:
+
+from myapp.models import Student
+
+CREATE:
+
+Student.objects.create(
+    name="Hasib",
+    email="hasib@gmail.com",
+    age=22,
+    phone="9876543210"
+)
+
+READ:
+
+Student.objects.all()
+
+EXIT:
+
+exit()
+
+
+55. CRUD
+--------
+
+CRUD means:
+
+C = Create
+R = Read
+U = Update
+D = Delete
+
+
+CREATE:
+
+Student.objects.create(
+    name="Hasib",
+    email="hasib@gmail.com",
+    age=22
+)
+
+
+READ:
+
+Student.objects.all()
+
+
+READ ONE:
+
+Student.objects.get(id=1)
+
+
+FILTER:
+
+Student.objects.filter(age=22)
+
+
+UPDATE:
+
+student = Student.objects.get(id=1)
+student.name = "Ali"
+student.save()
+
+
+DELETE:
+
+student = Student.objects.get(id=1)
+student.delete()
+
+
+56. COMPLETE BASIC PROJECT STRUCTURE
+------------------------------------
+
+Django/
+|
+|-- venv/
+|
+|-- myproject/
+    |
+    |-- manage.py
+    |
+    |-- db.sqlite3
+    |
+    |-- myproject/
+    |   |-- __init__.py
+    |   |-- settings.py
+    |   |-- urls.py
+    |   |-- asgi.py
+    |   |-- wsgi.py
+    |
+    |-- myapp/
+        |-- migrations/
+        |   |-- __init__.py
+        |
+        |-- templates/
+        |   |-- index.html
+        |
+        |-- static/
+        |
+        |-- __init__.py
+        |-- admin.py
+        |-- apps.py
+        |-- models.py
+        |-- tests.py
+        |-- urls.py
+        |-- views.py
+
+
+57. COMPLETE DJANGO SETUP - WINDOWS
+-----------------------------------
+
+py -m venv venv
+
+venv\Scripts\activate
+
+pip install django
+
+django-admin startproject myproject
+
+cd myproject
+
+py manage.py startapp myapp
+
+py manage.py makemigrations
+
+py manage.py migrate
+
+py manage.py createsuperuser
+
+py manage.py runserver
+
+
+58. COMPLETE DJANGO SETUP - MAC
+-------------------------------
+
+python3 -m venv venv
+
+source venv/bin/activate
+
+python -m pip install django
+
+django-admin startproject myproject
+
+cd myproject
+
+python manage.py startapp myapp
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+
+59. IMPORTANT DJANGO FLOW
+-------------------------
+
+CREATE ENVIRONMENT
+        |
+        v
+ACTIVATE ENVIRONMENT
+        |
+        v
+INSTALL DJANGO
+        |
+        v
+CREATE PROJECT
+        |
+        v
+CREATE APP
+        |
+        v
+ADD APP TO settings.py
+        |
+        v
+CREATE URLS
+        |
+        v
+CREATE VIEWS
+        |
+        v
+CREATE TEMPLATES
+        |
+        v
+CREATE MODELS
+        |
+        v
+MAKEMIGRATIONS
+        |
+        v
+MIGRATE
+        |
+        v
+REGISTER MODEL IN ADMIN
+        |
+        v
+CREATE SUPERUSER
+        |
+        v
+RUN SERVER
+
+
+60. REQUEST FLOW
+----------------
+
+Browser
+   |
+   v
+Project urls.py
+   |
+   v
+App urls.py
+   |
+   v
+View
+   |
+   +------> Model ------> Database
+   |
+   v
+Template
+   |
+   v
+Browser
+
+
+61. IMPORTANT COMMAND CHEAT SHEET
+---------------------------------
+
+CREATE VENV:
+
+WINDOWS:
+py -m venv venv
+
+MAC:
+python3 -m venv venv
+
+
+ACTIVATE:
+
+WINDOWS:
+venv\Scripts\activate
+
+MAC:
+source venv/bin/activate
+
+
+INSTALL DJANGO:
+
+pip install django
+
+
+CHECK DJANGO:
+
+python -m django --version
+
+
+CREATE PROJECT:
+
+WINDOWS:
+py -m django startproject myproject
+
+MAC:
+python3 -m django startproject myproject
+
+
+CREATE APP:
+
+WINDOWS:
+py manage.py startapp myapp
+
+MAC:
+python manage.py startapp myapp
+
+
+MAKE MIGRATIONS:
+
+WINDOWS:
+py manage.py makemigrations
+
+MAC:
+python manage.py makemigrations
+
+
+MIGRATE:
+
+WINDOWS:
+py manage.py migrate
+
+MAC:
+python manage.py migrate
+
+
+CREATE SUPERUSER:
+
+WINDOWS:
+py manage.py createsuperuser
+
+MAC:
+python manage.py createsuperuser
+
+
+RUN SERVER:
+
+WINDOWS:
+py manage.py runserver
+
+MAC:
+python manage.py runserver
+
+
+DJANGO SHELL:
+
+WINDOWS:
+py manage.py shell
+
+MAC:
+python manage.py shell
+
+
+DEACTIVATE:
+
+deactivate
+
+
+62. MOST IMPORTANT TOPICS TO REMEMBER
+-------------------------------------
+
+1. Django
+2. MVT Architecture
+3. Project
+4. App
+5. Virtual Environment
+6. manage.py
+7. settings.py
+8. urls.py
+9. Views
+10. Templates
+11. Static Files
+12. Models
+13. Migrations
+14. Database
+15. Admin Panel
+16. Superuser
+17. ORM
+18. CRUD
+19. Relationships
+20. Forms
+21. ModelForm
+22. GET / POST
+23. CSRF
+24. Template Inheritance
+25. Named URLs
+26. Redirect
+27. Messages
+28. Django Shell
+
+
+IMPORTANT MAC NOTE
+------------------
+When your virtual environment is activated and you see:
+
+(venv)
+
+use:
+
+python manage.py runserver
+
+Do NOT use:
+
+/usr/local/bin/python3 manage.py runserver
+
+The /usr/local/bin/python3 command can use a different Python installation where Django is not installed.
