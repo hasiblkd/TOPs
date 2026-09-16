@@ -320,6 +320,10 @@
                                     Description
                                 </th>
 
+                                <th colspan="2">
+                                    Actions
+                                </th>
+
                             </tr>
 
                         </thead>
@@ -328,12 +332,27 @@
                         <tbody>
                             {%  for product in products  %}
                             <tr>
-                                <td>{{product.id}}</td>
+                                <td>{{forloop.counter}}</td>
                                 <td>{{product.p_name}}</td>
                                 <td>{{product.p_price}}</td>
                                 <td>{{product.p_qty}}</td>
                                 <td>{{product.p_category}}</td>
                                 <td>{{product.p_desc}}</td>
+
+
+                                <td>
+                                    <a href="{% url 'update' %}?id={{product.id}}" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-pencil-square"></i>
+                                            Update  
+                                    </a> 
+                                </td>
+                                <td>
+                                    <a href="{% url 'delete' %}?id={{product.id}}" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i>
+                                        Delete
+                                    </a>
+                                </td>
+
                             </tr>
                             {% endfor %}
                         </tbody>

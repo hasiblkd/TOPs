@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Management System</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff 0%,
+                    #f8f7ff 50%,
+                    #ecfeff 100%
+                );
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page-wrapper {
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .main-card {
+            max-width: 1200px;
+            margin: auto;
+
+            background: #ffffff;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 20px 60px rgba(15, 23, 42, 0.12);
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .page-header {
+            position: relative;
+            overflow: hidden;
+
+            padding: 35px 40px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #6366f1,
+                    #7c3aed
+                );
+        }
+
+
+        .page-header::before {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            right: -70px;
+            top: -110px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+
+        .page-header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 140px;
+            height: 140px;
+
+            left: 40%;
+            bottom: -100px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        .header-left {
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+        }
+
+
+        /* =========================
+           HEADER ICON
+        ========================= */
+
+        .header-icon {
+            width: 65px;
+            height: 65px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.15);
+
+            border: 1px solid rgba(255, 255, 255, 0.22);
+
+            font-size: 28px;
+        }
+
+
+        .header-text h1 {
+            margin: 0 0 6px;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            letter-spacing: -0.5px;
+        }
+
+
+        .header-text p {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.82);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ADD BUTTON
+        ========================= */
+
+        .add-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 20px;
+
+            color: #4f46e5;
+
+            background: #ffffff;
+
+            border-radius: 11px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: 0.25s ease;
+        }
+
+
+        .add-btn:hover {
+            color: #4338ca;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            padding: 40px;
+        }
+
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-title h2 {
+            margin: 0 0 5px;
+
+            font-size: 22px;
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+
+        .section-title p {
+            margin: 0;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-box {
+            width: 300px;
+        }
+
+
+        .search-box .input-group {
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 3px 12px rgba(15, 23, 42, 0.05);
+        }
+
+
+        .search-box .input-group-text {
+            height: 46px;
+
+            color: #6366f1;
+
+            background: #ffffff;
+
+            border-right: none;
+        }
+
+
+        .search-box .form-control {
+            height: 46px;
+
+            border-left: none;
+
+            font-size: 14px;
+        }
+
+
+        .search-box .form-control:focus {
+            box-shadow: none;
+
+            border-color: #ced4da;
+        }
+
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-container {
+            overflow: hidden;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 16px;
+
+            background: #ffffff;
+        }
+
+
+        .table {
+            margin: 0;
+
+            vertical-align: middle;
+        }
+
+
+        /* =========================
+           TABLE HEADER
+        ========================= */
+
+        .table thead {
+            background: #f8fafc;
+        }
+
+
+        .table thead th {
+            padding: 17px 20px;
+
+            color: #64748b;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.6px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================
+           TABLE BODY
+        ========================= */
+
+        .table tbody td {
+            padding: 18px 20px;
+
+            color: #374151;
+
+            font-size: 14px;
+
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+
+        .table tbody tr {
+            transition: 0.2s ease;
+        }
+
+
+        .table tbody tr:hover {
+            background: #fafbff;
+        }
+
+
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* =========================
+           ID
+        ========================= */
+
+        .student-id {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 36px;
+            height: 36px;
+
+            color: #4f46e5;
+
+            background: #eef2ff;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           STUDENT INFO
+        ========================= */
+
+        .student-info {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        /* =========================
+           AVATAR
+        ========================= */
+
+        .student-avatar {
+            width: 44px;
+            height: 44px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6366f1,
+                    #8b5cf6
+                );
+
+            color: #ffffff;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            box-shadow:
+                0 5px 12px rgba(99, 102, 241, 0.2);
+        }
+
+
+        .student-name {
+            color: #111827;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           EMAIL
+        ========================= */
+
+        .email-text {
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           AGE
+        ========================= */
+
+        .age-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 42px;
+
+            padding: 6px 12px;
+
+            color: #15803d;
+
+            background: #f0fdf4;
+
+            border: 1px solid #dcfce7;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           ACTION BUTTONS
+        ========================= */
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .action-btn {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: none;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            transition: 0.2s ease;
+        }
+
+
+        .edit-btn {
+            color: #4f46e5;
+
+            background: #eef2ff;
+        }
+
+
+        .edit-btn:hover {
+            color: #ffffff;
+
+            background: #4f46e5;
+
+            transform: translateY(-2px);
+        }
+
+
+        .delete-btn {
+            color: #dc2626;
+
+            background: #fef2f2;
+        }
+
+
+        .delete-btn:hover {
+            color: #ffffff;
+
+            background: #dc2626;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .table-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 5px 0;
+
+            color: #9ca3af;
+
+            font-size: 13px;
+        }
+
+
+        .status-dot {
+            display: inline-block;
+
+            width: 8px;
+            height: 8px;
+
+            margin-right: 6px;
+
+            background: #22c55e;
+
+            border-radius: 50%;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .page-wrapper {
+                padding: 20px 10px;
+            }
+
+
+            .page-header {
+                padding: 28px 22px;
+            }
+
+
+            .header-content {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+
+            .header-text h1 {
+                font-size: 24px;
+            }
+
+
+            .header-icon {
+                width: 55px;
+                height: 55px;
+
+                font-size: 23px;
+            }
+
+
+            .content {
+                padding: 25px 20px;
+            }
+
+
+            .top-bar {
+                align-items: stretch;
+
+                flex-direction: column;
+            }
+
+
+            .search-box {
+                width: 100%;
+            }
+
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+
+            .table {
+                min-width: 850px;
+            }
+
+
+            .table-footer {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 8px;
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="page-wrapper">
+
+        <div class="main-card">
+
+
+            <!-- =========================
+                 HEADER
+            ========================== -->
+
+            <div class="page-header">
+
+                <div class="header-content">
+
+
+                    <div class="header-left">
+
+                        <div class="header-icon">
+
+                            <i class="bi bi-people-fill"></i>
+
+                        </div>
+
+
+                        <div class="header-text">
+
+                            <h1>
+                                Student Directory
+                            </h1>
+
+                            <p>
+                                Manage and view registered students
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="{% url 'index' %}" class="add-btn">
+
+                        <i class="bi bi-person-plus me-2"></i>
+
+                        Add Student
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CONTENT
+            ========================== -->
+
+            <div class="content">
+
+
+                <!-- TOP BAR -->
+
+                <div class="top-bar">
+
+
+                    <div class="section-title">
+
+                        <h2>
+                            All Students
+                        </h2>
+
+                        <p>
+                            View registered student information
+                        </p>
+
+                    </div>
+
+
+                    <!-- Search UI only -->
+
+                    <div class="search-box">
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-search"></i>
+
+                            </span>
+
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Search students..."
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =========================
+                     TABLE
+                ========================== -->
+
+                <div class="table-container">
+
+                    <table class="table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Student
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Age
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for st in student%}
+
+                            <tr>
+
+
+                                <!-- ID -->
+
+                                <td>
+
+                                    <span class="student-id">
+
+                                        {{forloop.counter}}
+
+                                    </span>
+
+                                </td>
+
+
+                                <!-- STUDENT -->
+
+                                <td>
+
+                                    <div class="student-info">
+
+
+                                        <div class="student-avatar">
+
+                                            {{st.s_name|first|upper}}
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <div class="student-name">
+
+                                                {{st.s_name}}
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- EMAIL -->
+
+                                <td>
+
+                                    <span class="email-text">
+
+                                        {{ st.s_email}}
+
+                                    </span>
+
+                                </td>
+
+
+                                <!-- AGE -->
+
+                                <td>
+
+                                    <span class="age-badge">
+
+                                        {{ st.s_age}}
+
+                                    </span>
+
+                                </td>
+
+
+                                <!-- ACTIONS -->
+
+                                <td>
+
+                                    <div class="action-buttons">
+
+                                        <a
+                                            href="{% url 'update' %}?id={{st.id}}"
+                                            class="action-btn edit-btn"
+                                        >
+
+                                            <i class="bi bi-pencil"></i>
+
+                                        </a>
+
+
+                                        <a
+                                            href="{% url 'delete' %}?id={{st.id}}"
+                                            class="action-btn delete-btn"
+                                        >
+
+                                            <i class="bi bi-trash"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+
+                            </tr>
+
+                            {% endfor %}
+
+
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="table-footer">
+
+
+                    <div>
+
+                        <span class="status-dot"></span>
+
+                        Student records available
+
+                    </div>
+
+
+                    <div>
+
+                        Student Management System
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+
+</body>
+
+</html>

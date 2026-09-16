@@ -225,7 +225,11 @@
 
 
                 <h2>
-                    Add New Product
+                    {% if pr %}
+                        Update Product
+                    {% else %}
+                        Add New Product
+                    {% endif %}
                 </h2>
 
 
@@ -277,6 +281,7 @@
                                 class="form-control"
                                 placeholder="Enter product name"
                                 required
+                                value="{{pr.p_name}}"
                             >
 
                         </div>
@@ -317,6 +322,7 @@
                                     placeholder="Enter product price"
                                     min="0"
                                     required
+                                    value="{{pr.p_price}}"
                                 >
 
                             </div>
@@ -354,6 +360,7 @@
                                     placeholder="Enter product quantity"
                                     min="1"
                                     required
+                                    value="{{pr.p_qty}}"
                                 >
 
                             </div>
@@ -361,83 +368,101 @@
                         </div>
 
                     </div>
+<!-- Category -->
+
+<div class="mb-4">
+
+    <label class="form-label">
+
+        Product Category
+
+        <span class="required">*</span>
+
+    </label>
 
 
+    <div class="input-group">
 
-                    <!-- Category -->
+        <span class="input-group-text">
 
-                    <div class="mb-4">
+            <i class="bi bi-grid"></i>
 
-                        <label class="form-label">
-
-                            Product Category
-
-                            <span class="required">*</span>
-
-                        </label>
+        </span>
 
 
-                        <div class="input-group">
+        <select
+            name="category"
+            class="form-select"
+            required
+        >
 
-                            <span class="input-group-text">
-
-                                <i class="bi bi-grid"></i>
-
-                            </span>
-
-
-                            <select
-                                name="category"
-                                class="form-select"
-                                required
-                            >
-
-                                <option selected disabled>
-
-                                    Select product category
-
-                                </option>
+            <option disabled>
+                Select product category
+            </option>
 
 
-                                <option>
-                                    Electronics
-                                </option>
+            <option
+                value="Electronics"
+                {% if pr.p_category == "Electronics" %}selected{% endif %}
+            >
+                Electronics
+            </option>
 
 
-                                <option>
-                                    Clothing
-                                </option>
+            <option
+                value="Clothing"
+                {% if pr.p_category == "Clothing" %}selected{% endif %}
+            >
+                Clothing
+            </option>
 
 
-                                <option>
-                                    Food & Beverages
-                                </option>
+            <option
+                value="Food & Beverages"
+                {% if pr.p_category == "Food & Beverages" %}selected{% endif %}
+            >
+                Food & Beverages
+            </option>
 
 
-                                <option>
-                                    Books
-                                </option>
+            <option
+                value="Books"
+                {% if pr.p_category == "Books" %}selected{% endif %}
+            >
+                Books
+            </option>
 
 
-                                <option>
-                                    Furniture
-                                </option>
+            <option
+                value="Furniture"
+                {% if pr.p_category == "Furniture" %}selected{% endif %}
+            >
+                Furniture
+            </option>
 
 
-                                <option>
-                                    Accessories
-                                </option>
+            <option
+                value="Accessories"
+                {% if pr.p_category == "Accessories" %}selected{% endif %}
+            >
+                Accessories
+            </option>
 
 
-                                <option>
-                                    Other
-                                </option>
+            <option
+                value="Other"
+                {% if pr.p_category == "Other" %}selected{% endif %}
+            >
+                Other
+            </option>
 
-                            </select>
+        </select>
 
-                        </div>
+    </div>
 
-                    </div>
+</div>
+```
+
 
 
 
@@ -457,7 +482,8 @@
                             class="form-control"
                             rows="5"
                             placeholder="Enter product description..."
-                        ></textarea>
+                            
+                        >{{ pr.p_desc }}</textarea>
 
                     </div>
 
@@ -477,7 +503,11 @@
 
                             <i class="bi bi-plus-circle me-2"></i>
 
-                            Register
+                            {% if pr %}
+                                Update
+                            {% else %}
+                                Register
+                            {% endif %}
 
                         </button>
 
@@ -501,7 +531,7 @@
                         <!-- 3. View Products -->
 
                         <a
-                            href="#"
+                            href="{%url 'display'%}"
                             class="btn btn-success"
                         >
 
