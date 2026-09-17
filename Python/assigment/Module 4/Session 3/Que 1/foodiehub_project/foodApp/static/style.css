@@ -1,0 +1,174 @@
+/* ================= BODY ================= */
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: white;
+    padding: 16px 0;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.navbar-brand {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff5722 !important;
+}
+
+
+.brand-icon {
+    color: #ff5722;
+    font-size: 28px;
+}
+
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+
+.nav-link:hover {
+    color: #ff5722 !important;
+}
+
+
+/* ================= HERO ================= */
+
+.hero-section {
+    margin-top: 35px;
+    padding: 65px 40px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 25px;
+
+    color: white;
+}
+
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+
+.hero-text {
+    font-size: 18px;
+    max-width: 650px;
+    margin: 15px auto;
+    color: #eeeeee;
+}
+
+
+.explore-btn {
+    background-color: #ff5722;
+    color: white;
+
+    border: none;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.explore-btn:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+
+/* ================= CATEGORY ================= */
+
+.category-card {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+
+    transition: 0.3s;
+}
+
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.category-icon {
+    font-size: 32px;
+    color: #ff5722;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background-color: #212529;
+    color: #adb5bd;
+
+    margin-top: 60px;
+}
+
+
+.footer-title {
+    color: white;
+    font-weight: 600;
+}
+
+
+.footer-link {
+    color: #adb5bd;
+    text-decoration: none;
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+
+.footer-link:hover {
+    color: #ff5722;
+}
+
+
+.social-icon {
+    color: #adb5bd;
+
+    font-size: 21px;
+
+    margin-left: 12px;
+
+    transition: 0.3s;
+}
+
+
+.social-icon:hover {
+    color: #ff5722;
+}
