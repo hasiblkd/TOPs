@@ -8,3 +8,4 @@ class Product(models.Model):
     p_qty=models.IntegerField()
     p_category=models.CharField(max_length=100)
     p_desc=models.CharField(max_length=500)
+    img=models.ImageField(upload_to="image",null=True)

@@ -248,11 +248,53 @@
 
                 <!-- Product Registration Form -->
 
-                <form method="POST" action="{% url 'register' %}">
+                <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
 
                     {% csrf_token %}
 
+                    <!-- Product Image -->
 
+                    <div class="mb-4">
+
+                        <label class="form-label">
+
+                            Product Image
+
+                            <span class="required">*</span>
+
+                        </label>
+                    <div class="text-center mb-3">
+                        {% if product %}
+                        <img
+                            id="imagePreview"
+                            src="media/{{product.img}}"
+                            alt="Product Image Preview"
+                            style="display:flexbox; width: 180px; height: 180px; object-fit: cover; border-radius: 15px; border: 2px solid #ddd;"
+                        >
+                        {% endif %}
+                    </div>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+
+                            <i class="bi bi-image"></i>
+
+
+
+                        </span>
+
+                        <input
+                            id="file"
+                            type="file"
+                            name="file"
+                            class="form-control"
+                            
+                        >
+
+                    </div>
+
+                 </div>
                     <!-- Product Name -->
 
                     <div class="mb-4">

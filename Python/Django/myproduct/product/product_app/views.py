@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from product_app.models import *
+import os
 
 # Create your views here.
 
@@ -15,6 +16,10 @@ def register(request):
     p_decs=data.get("description")
     id=data.get("id")
 
+    # for File Upload
+
+    file=request.FILES.get("file")
+
     if id:
         pr=Product.objects.get(pk=id)
         pr.p_name=p_name
@@ -22,6 +27,11 @@ def register(request):
         pr.p_qty=p_price
         pr.p_category=p_cate
         pr.p_desc=p_decs
+
+        if file:
+            os.remove(pr.img.path)
+            pr.img=file
+
         pr.save()
         return render(request,"index.html",{"msg":"Update succfully"})
     else:
@@ -36,6 +46,8 @@ def display(request):
 def delete_product(request):
     id=request.GET.get("id")
     pr=Product.objects.get(id=id)
+    if pr.img:
+        os.remove(pr.img.path)
     pr.delete()
     return redirect("display")
 
