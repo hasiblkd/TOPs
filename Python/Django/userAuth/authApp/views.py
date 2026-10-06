@@ -41,7 +41,7 @@ def registration(request):
 
 def user_logout(request):
     logout(request)
-    return redirect("home")
+    return redirect("logging")
 
 @login_required(login_url="logging")
 def home(request):
