@@ -1,21 +1,78 @@
-{% extends "index.html" %}
+
+{% extends "base.html" %}
+
+{% block title %}FoodieHub | Home{% endblock %}
 
 {% block content %}
 
-<div class="text-center py-5">
+<!-- Hero Section -->
+<section class="hero-section text-center">
 
-    <h1 class="fw-bold">
-        Welcome to FoodieHub! 🍽️
+    <h1 class="hero-title">
+        Discover Delicious Food
     </h1>
 
-    <p class="text-muted fs-5 mt-3">
-        Discover delicious food and explore amazing restaurants.
+    <p class="hero-text">
+        Find your favorite restaurants, discover amazing dishes,
+        and explore the best food around you.
     </p>
 
-    <button class="btn btn-danger rounded-pill px-4 mt-3">
-        Explore Restaurants
-    </button>
+    <a href="/explore/" class="explore-btn text-decoration-none">
+        <i class="bi bi-search me-2"></i>
+        Explore Food
+    </a>
 
-</div>
+</section>
+
+<!-- Categories -->
+<section class="mt-5">
+
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">
+            Explore Categories
+        </h2>
+
+        <p class="text-muted">
+            What are you craving today?
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Pizza -->
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🍕</div>
+                <h5 class="mt-3">Pizza</h5>
+            </div>
+        </div>
+
+        <!-- Burgers -->
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🍔</div>
+                <h5 class="mt-3">Burgers</h5>
+            </div>
+        </div>
+
+        <!-- Noodles -->
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🍜</div>
+                <h5 class="mt-3">Noodles</h5>
+            </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🍰</div>
+                <h5 class="mt-3">Desserts</h5>
+            </div>
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
